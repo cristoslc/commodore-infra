@@ -1,0 +1,22 @@
+[project]
+name = "commodore"
+version = "0.1.0"
+description = "Hexagonal architecture infrastructure platform with security-classified service placement"
+requires-python = ">=3.11"
+dependencies = [
+    "click",
+    "ruamel.yaml",
+]
+
+[project.scripts]
+cdre = "commodore.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/commodore"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
