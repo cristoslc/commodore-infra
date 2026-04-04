@@ -51,7 +51,9 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-None yet -- to be decomposed when implementation begins.
+- [SPEC-001: Service, Host, and Topology Models](../../../spec/Active/(SPEC-001)-Service-Host-Topology-Models/(SPEC-001)-Service-Host-Topology-Models.md)
+- [SPEC-002: Security Classification Model](../../../spec/Active/(SPEC-002)-Security-Classification-Model/(SPEC-002)-Security-Classification-Model.md)
+- [SPEC-003: Placement Validation](../../../spec/Active/(SPEC-003)-Placement-Validation/(SPEC-003)-Placement-Validation.md)
 
 ## Key Dependencies
 
