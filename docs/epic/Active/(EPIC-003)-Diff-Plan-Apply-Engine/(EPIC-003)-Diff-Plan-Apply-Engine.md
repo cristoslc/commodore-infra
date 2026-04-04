@@ -55,7 +55,9 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-None yet -- to be decomposed when implementation begins.
+- [SPEC-007: State Collection and Diff Engine](../../../spec/Active/(SPEC-007)-State-Collection-and-Diff/(SPEC-007)-State-Collection-and-Diff.md)
+- [SPEC-008: Plan Generation](../../../spec/Active/(SPEC-008)-Plan-Generation/(SPEC-008)-Plan-Generation.md)
+- [SPEC-009: Apply Execution](../../../spec/Active/(SPEC-009)-Apply-Execution/(SPEC-009)-Apply-Execution.md)
 
 ## Key Dependencies
 

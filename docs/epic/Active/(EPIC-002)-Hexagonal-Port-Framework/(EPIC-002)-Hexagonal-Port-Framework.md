@@ -54,7 +54,9 @@ Adding a new adapter requires implementing one port protocol with zero core chan
 
 ## Child Specs
 
-None yet -- to be decomposed when implementation begins.
+- [SPEC-004: Port Protocol Definitions](../../../spec/Active/(SPEC-004)-Port-Protocol-Definitions/(SPEC-004)-Port-Protocol-Definitions.md)
+- [SPEC-005: Adapter Registry](../../../spec/Active/(SPEC-005)-Adapter-Registry/(SPEC-005)-Adapter-Registry.md)
+- [SPEC-006: In-Memory Stub Adapters](../../../spec/Active/(SPEC-006)-In-Memory-Stub-Adapters/(SPEC-006)-In-Memory-Stub-Adapters.md)
 
 ## Key Dependencies
 

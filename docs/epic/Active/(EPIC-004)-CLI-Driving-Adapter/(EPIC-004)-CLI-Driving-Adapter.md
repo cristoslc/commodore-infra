@@ -56,7 +56,8 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-None yet -- to be decomposed when implementation begins.
+- [SPEC-010: CLI Commands](../../../spec/Active/(SPEC-010)-CLI-Commands/(SPEC-010)-CLI-Commands.md)
+- [SPEC-011: Config Discovery and YAML Loading](../../../spec/Active/(SPEC-011)-Config-Discovery-and-YAML-Loading/(SPEC-011)-Config-Discovery-and-YAML-Loading.md)
 
 ## Key Dependencies
 

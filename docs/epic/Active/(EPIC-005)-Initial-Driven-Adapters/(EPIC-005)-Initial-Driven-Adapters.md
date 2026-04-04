@@ -52,7 +52,9 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-None yet -- to be decomposed when implementation begins.
+- [SPEC-012: Cloudflare DNS Adapter](../../../spec/Active/(SPEC-012)-Cloudflare-DNS-Adapter/(SPEC-012)-Cloudflare-DNS-Adapter.md)
+- [SPEC-013: Docker Compose Adapter](../../../spec/Active/(SPEC-013)-Docker-Compose-Adapter/(SPEC-013)-Docker-Compose-Adapter.md)
+- [SPEC-014: SSH+Caddy Reverse Proxy Adapter](../../../spec/Active/(SPEC-014)-SSH-Caddy-Reverse-Proxy-Adapter/(SPEC-014)-SSH-Caddy-Reverse-Proxy-Adapter.md)
 
 ## Key Dependencies
 
