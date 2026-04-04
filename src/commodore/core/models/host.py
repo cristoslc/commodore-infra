@@ -13,6 +13,7 @@ class Host:
     address: str
     roles: frozenset[str]
     classification: SecurityClassification
+    segments: frozenset[str] = frozenset({"default"})
 
     def __post_init__(self) -> None:
         if not self.name:

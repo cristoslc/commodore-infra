@@ -11,6 +11,7 @@ from ruamel.yaml import YAML
 
 from commodore.core.models.classification import SecurityClassification
 from commodore.core.models.host import Host
+from commodore.core.models.segment import NetworkSegment
 from commodore.core.models.service import ContainerSpec, DNSRecord, IngressRule, Service, StorageMount
 from commodore.core.models.topology import Topology
 
@@ -42,17 +43,32 @@ def load_topology(path: str) -> Topology:
     with open(path) as f:
         data = yaml.load(f)
 
+    # Parse segments
+    segments = []
+    if "segments" in data:
+        for name, info in data["segments"].items():
+            segments.append(
+                NetworkSegment(
+                    name=name,
+                    cidr=info.get("cidr", ""),
+                    reachable_from=frozenset(info.get("reachable_from", [])),
+                )
+            )
+
+    # Parse hosts
     hosts = []
     for name, info in data["hosts"].items():
+        host_segments = frozenset(info["segments"]) if "segments" in info else frozenset({"default"})
         hosts.append(
             Host(
                 name=name,
                 address=info["address"],
                 roles=frozenset(info.get("roles", [])),
                 classification=SecurityClassification(info["classification"]),
+                segments=host_segments,
             )
         )
-    return Topology(hosts=tuple(hosts))
+    return Topology(hosts=tuple(hosts), segments=tuple(segments))
 
 
 def _parse_service(data: dict[str, Any]) -> Service:

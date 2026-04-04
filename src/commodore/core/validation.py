@@ -48,7 +48,51 @@ def _check_role(service: Service, host: Host, _topology: Topology) -> list[Valid
     return []
 
 
-_RULES = [_check_classification, _check_role]
+def _parse_upstream_host(upstream: str) -> str | None:
+    """Extract hostname from upstream URL like 'http://nas:5055'."""
+    if not upstream:
+        return None
+    # Strip scheme
+    host_part = upstream.split("//", 1)[-1] if "//" in upstream else upstream
+    # Strip port and path
+    host_part = host_part.split(":")[0].split("/")[0]
+    return host_part if host_part else None
+
+
+def _check_network_reachability(service: Service, host: Host, topology: Topology) -> list[ValidationError]:
+    errors: list[ValidationError] = []
+    for rule in service.ingress:
+        target_name = _parse_upstream_host(rule.upstream)
+        if not target_name:
+            continue
+        target_host = topology.get_host(target_name)
+        if target_host is None:
+            errors.append(
+                ValidationError(
+                    severity="warning",
+                    rule="network_reachability",
+                    message=(
+                        f"Service '{service.name}' ingress references host '{target_name}' "
+                        f"which is not in the topology"
+                    ),
+                )
+            )
+            continue
+        if not topology.can_reach(host, target_host):
+            errors.append(
+                ValidationError(
+                    severity="error",
+                    rule="network_reachability",
+                    message=(
+                        f"Service '{service.name}' on host '{host.name}' (segments: {sorted(host.segments)}) "
+                        f"cannot reach upstream host '{target_name}' (segments: {sorted(target_host.segments)})"
+                    ),
+                )
+            )
+    return errors
+
+
+_RULES = [_check_classification, _check_role, _check_network_reachability]
 
 
 def validate_placement(service: Service, host: Host, topology: Topology) -> list[ValidationError]:
