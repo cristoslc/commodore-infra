@@ -1,12 +1,14 @@
 # Commodore
 
+> **WARNING: This project is experimental and completely untested.** The code is provided solely for research interest. It is not intended for production use, and there are no guarantees of correctness, stability, or completeness. Use at your own risk.
+
 **CLI:** `cdre`
 
 Commodore is a hexagonal architecture infrastructure platform that separates service definitions from runtime concerns. Services declare what they need and their security classification; the platform resolves placement across heterogeneous hosts (Docker Compose, k3s, bare metal, Proxmox VMs). The CLI is `cdre`.
 
 ## Status
 
-Early design phase.
+Experimental -- not tested, not production-ready.
 
 ## Key Concepts
 
