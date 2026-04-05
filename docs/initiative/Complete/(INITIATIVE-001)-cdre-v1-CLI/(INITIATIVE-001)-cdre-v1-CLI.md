@@ -54,11 +54,11 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Epics
 
-- [EPIC-001](../../../epic/Active/(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md) -- Core Domain Models
-- [EPIC-002](../../../epic/Active/(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md) -- Hexagonal Port Framework
-- [EPIC-003](../../../epic/Active/(EPIC-003)-Diff-Plan-Apply-Engine/(EPIC-003)-Diff-Plan-Apply-Engine.md) -- Diff-Plan-Apply Engine
-- [EPIC-004](../../../epic/Active/(EPIC-004)-CLI-Driving-Adapter/(EPIC-004)-CLI-Driving-Adapter.md) -- CLI Driving Adapter (`cdre`)
-- [EPIC-005](../../../epic/Active/(EPIC-005)-Initial-Driven-Adapters/(EPIC-005)-Initial-Driven-Adapters.md) -- Initial Driven Adapters
+- [EPIC-001](../../../epic/Complete/(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md) -- Core Domain Models
+- [EPIC-002](../../../epic/Complete/(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md) -- Hexagonal Port Framework
+- [EPIC-003](../../../epic/Complete/(EPIC-003)-Diff-Plan-Apply-Engine/(EPIC-003)-Diff-Plan-Apply-Engine.md) -- Diff-Plan-Apply Engine
+- [EPIC-004](../../../epic/Complete/(EPIC-004)-CLI-Driving-Adapter/(EPIC-004)-CLI-Driving-Adapter.md) -- CLI Driving Adapter (`cdre`)
+- [EPIC-005](../../../epic/Complete/(EPIC-005)-Initial-Driven-Adapters/(EPIC-005)-Initial-Driven-Adapters.md) -- Initial Driven Adapters
 
 ## Small Work (Epic-less Specs)
 

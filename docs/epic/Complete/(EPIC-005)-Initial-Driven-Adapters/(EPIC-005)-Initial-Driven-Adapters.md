@@ -52,13 +52,13 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-- [SPEC-012: Cloudflare DNS Adapter](../../../spec/Active/(SPEC-012)-Cloudflare-DNS-Adapter/(SPEC-012)-Cloudflare-DNS-Adapter.md)
-- [SPEC-013: Docker Compose Adapter](../../../spec/Active/(SPEC-013)-Docker-Compose-Adapter/(SPEC-013)-Docker-Compose-Adapter.md)
-- [SPEC-014: SSH+Caddy Reverse Proxy Adapter](../../../spec/Active/(SPEC-014)-SSH-Caddy-Reverse-Proxy-Adapter/(SPEC-014)-SSH-Caddy-Reverse-Proxy-Adapter.md)
+- [SPEC-012: Cloudflare DNS Adapter](../../../spec/Complete/(SPEC-012)-Cloudflare-DNS-Adapter/(SPEC-012)-Cloudflare-DNS-Adapter.md)
+- [SPEC-013: Docker Compose Adapter](../../../spec/Complete/(SPEC-013)-Docker-Compose-Adapter/(SPEC-013)-Docker-Compose-Adapter.md)
+- [SPEC-014: SSH+Caddy Reverse Proxy Adapter](../../../spec/Complete/(SPEC-014)-SSH-Caddy-Reverse-Proxy-Adapter/(SPEC-014)-SSH-Caddy-Reverse-Proxy-Adapter.md)
 
 ## Key Dependencies
 
-- [EPIC-002](../../../epic/Active/(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md) -- port protocols that adapters implement
+- [EPIC-002](../(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md) -- port protocols that adapters implement
 
 ## Lifecycle
 

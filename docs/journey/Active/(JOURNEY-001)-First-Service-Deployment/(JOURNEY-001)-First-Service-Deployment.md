@@ -16,7 +16,7 @@ depends-on-artifacts: []
 
 ## Persona
 
-[PERSONA-001](../../persona/Active/(PERSONA-001)-Infrastructure-Operator/(PERSONA-001)-Infrastructure-Operator.md) -- Solo Homelab Operator. A technical professional managing heterogeneous infrastructure who wants to define a service once and deploy it with security classification enforced structurally.
+[PERSONA-001](../../../persona/Active/(PERSONA-001)-Infrastructure-Operator/(PERSONA-001)-Infrastructure-Operator.md) -- Solo Homelab Operator. A technical professional managing heterogeneous infrastructure who wants to define a service once and deploy it with security classification enforced structurally.
 
 ## Goal
 

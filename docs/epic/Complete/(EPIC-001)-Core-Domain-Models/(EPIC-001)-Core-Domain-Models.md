@@ -46,14 +46,14 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 **Out of scope:**
 - Placement *resolution* (choosing optimal hosts) -- that's part of the plan engine (EPIC-003)
-- Port interfaces and adapters -- covered by [EPIC-002](../../../epic/Active/(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md)
-- CLI parsing and commands -- covered by [EPIC-004](../../../epic/Active/(EPIC-004)-CLI-Driving-Adapter/(EPIC-004)-CLI-Driving-Adapter.md)
+- Port interfaces and adapters -- covered by [EPIC-002](../(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md)
+- CLI parsing and commands -- covered by [EPIC-004](../(EPIC-004)-CLI-Driving-Adapter/(EPIC-004)-CLI-Driving-Adapter.md)
 
 ## Child Specs
 
-- [SPEC-001: Service, Host, and Topology Models](../../../spec/Active/(SPEC-001)-Service-Host-Topology-Models/(SPEC-001)-Service-Host-Topology-Models.md)
-- [SPEC-002: Security Classification Model](../../../spec/Active/(SPEC-002)-Security-Classification-Model/(SPEC-002)-Security-Classification-Model.md)
-- [SPEC-003: Placement Validation](../../../spec/Active/(SPEC-003)-Placement-Validation/(SPEC-003)-Placement-Validation.md)
+- [SPEC-001: Service, Host, and Topology Models](../../../spec/Complete/(SPEC-001)-Service-Host-Topology-Models/(SPEC-001)-Service-Host-Topology-Models.md)
+- [SPEC-002: Security Classification Model](../../../spec/Complete/(SPEC-002)-Security-Classification-Model/(SPEC-002)-Security-Classification-Model.md)
+- [SPEC-003: Placement Validation](../../../spec/Complete/(SPEC-003)-Placement-Validation/(SPEC-003)-Placement-Validation.md)
 
 ## Key Dependencies
 

@@ -55,14 +55,14 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-- [SPEC-007: State Collection and Diff Engine](../../../spec/Active/(SPEC-007)-State-Collection-and-Diff/(SPEC-007)-State-Collection-and-Diff.md)
-- [SPEC-008: Plan Generation](../../../spec/Active/(SPEC-008)-Plan-Generation/(SPEC-008)-Plan-Generation.md)
-- [SPEC-009: Apply Execution](../../../spec/Active/(SPEC-009)-Apply-Execution/(SPEC-009)-Apply-Execution.md)
+- [SPEC-007: State Collection and Diff Engine](../../../spec/Complete/(SPEC-007)-State-Collection-and-Diff/(SPEC-007)-State-Collection-and-Diff.md)
+- [SPEC-008: Plan Generation](../../../spec/Complete/(SPEC-008)-Plan-Generation/(SPEC-008)-Plan-Generation.md)
+- [SPEC-009: Apply Execution](../../../spec/Complete/(SPEC-009)-Apply-Execution/(SPEC-009)-Apply-Execution.md)
 
 ## Key Dependencies
 
-- [EPIC-001](../../../epic/Active/(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md) -- domain models for services, hosts, topology
-- [EPIC-002](../../../epic/Active/(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md) -- port interfaces for state collection and apply
+- [EPIC-001](../(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md) -- domain models for services, hosts, topology
+- [EPIC-002](../(EPIC-002)-Hexagonal-Port-Framework/(EPIC-002)-Hexagonal-Port-Framework.md) -- port interfaces for state collection and apply
 
 ## Lifecycle
 

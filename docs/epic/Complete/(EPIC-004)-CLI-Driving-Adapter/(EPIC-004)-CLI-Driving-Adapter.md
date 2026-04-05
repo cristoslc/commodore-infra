@@ -56,12 +56,12 @@ The [Infrastructure Operator](../../../persona/Active/(PERSONA-001)-Infrastructu
 
 ## Child Specs
 
-- [SPEC-010: CLI Commands](../../../spec/Active/(SPEC-010)-CLI-Commands/(SPEC-010)-CLI-Commands.md)
-- [SPEC-011: Config Discovery and YAML Loading](../../../spec/Active/(SPEC-011)-Config-Discovery-and-YAML-Loading/(SPEC-011)-Config-Discovery-and-YAML-Loading.md)
+- [SPEC-010: CLI Commands](../../../spec/Complete/(SPEC-010)-CLI-Commands/(SPEC-010)-CLI-Commands.md)
+- [SPEC-011: Config Discovery and YAML Loading](../../../spec/Complete/(SPEC-011)-Config-Discovery-and-YAML-Loading/(SPEC-011)-Config-Discovery-and-YAML-Loading.md)
 
 ## Key Dependencies
 
-- [EPIC-003](../../../epic/Active/(EPIC-003)-Diff-Plan-Apply-Engine/(EPIC-003)-Diff-Plan-Apply-Engine.md) -- the CLI calls the diff-plan-apply engine
+- [EPIC-003](../(EPIC-003)-Diff-Plan-Apply-Engine/(EPIC-003)-Diff-Plan-Apply-Engine.md) -- the CLI calls the diff-plan-apply engine
 
 ## Lifecycle
 

@@ -48,19 +48,19 @@ Adding a new adapter requires implementing one port protocol with zero core chan
 - Port-level error types (domain exceptions, not adapter internals)
 
 **Out of scope:**
-- Concrete adapters (Cloudflare, Docker Compose, etc.) -- covered by [EPIC-005](../../../epic/Active/(EPIC-005)-Initial-Driven-Adapters/(EPIC-005)-Initial-Driven-Adapters.md)
-- Driving port interfaces (CLI, MCP) -- covered by [EPIC-004](../../../epic/Active/(EPIC-004)-CLI-Driving-Adapter/(EPIC-004)-CLI-Driving-Adapter.md)
-- Core domain models -- covered by [EPIC-001](../../../epic/Active/(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md)
+- Concrete adapters (Cloudflare, Docker Compose, etc.) -- covered by [EPIC-005](../(EPIC-005)-Initial-Driven-Adapters/(EPIC-005)-Initial-Driven-Adapters.md)
+- Driving port interfaces (CLI, MCP) -- covered by [EPIC-004](../(EPIC-004)-CLI-Driving-Adapter/(EPIC-004)-CLI-Driving-Adapter.md)
+- Core domain models -- covered by [EPIC-001](../(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md)
 
 ## Child Specs
 
-- [SPEC-004: Port Protocol Definitions](../../../spec/Active/(SPEC-004)-Port-Protocol-Definitions/(SPEC-004)-Port-Protocol-Definitions.md)
-- [SPEC-005: Adapter Registry](../../../spec/Active/(SPEC-005)-Adapter-Registry/(SPEC-005)-Adapter-Registry.md)
-- [SPEC-006: In-Memory Stub Adapters](../../../spec/Active/(SPEC-006)-In-Memory-Stub-Adapters/(SPEC-006)-In-Memory-Stub-Adapters.md)
+- [SPEC-004: Port Protocol Definitions](../../../spec/Complete/(SPEC-004)-Port-Protocol-Definitions/(SPEC-004)-Port-Protocol-Definitions.md)
+- [SPEC-005: Adapter Registry](../../../spec/Complete/(SPEC-005)-Adapter-Registry/(SPEC-005)-Adapter-Registry.md)
+- [SPEC-006: In-Memory Stub Adapters](../../../spec/Complete/(SPEC-006)-In-Memory-Stub-Adapters/(SPEC-006)-In-Memory-Stub-Adapters.md)
 
 ## Key Dependencies
 
-- [EPIC-001](../../../epic/Active/(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md) -- port protocols reference core domain types (Service, Host, etc.)
+- [EPIC-001](../(EPIC-001)-Core-Domain-Models/(EPIC-001)-Core-Domain-Models.md) -- port protocols reference core domain types (Service, Host, etc.)
 
 ## Lifecycle
 

@@ -40,3 +40,24 @@ No decisions recorded yet this session.
 ## Walk-Away Signal
 
 No decisions needed — this focus area has no pending operator actions.
+
+---
+
+## Session Teardown Summary
+
+**Session ID:** session-20260404-224043-60f3  
+**Focus Lane:** EPIC-006 (Environment Discovery)  
+**Close Time:** 2026-04-05T02:40:43Z  
+
+### Findings
+
+- **Worktree State:** Clean — no orphaned worktrees. Only main worktree active.
+- **Git State:** Stale (1 modified artifact cache file `.agents/design-check.log`, non-critical)
+- **Ticket Sync:** 1 ready ticket (cis0pm22b-91j6, SPEC-015), 4 recently closed. Ready queue unblocked.
+- **Focus Lane Progress:** EPIC-006 specs documented (SPEC-015 through SPEC-019); implementation in progress on SPEC-015 (Provider Model and Adapter Wiring)
+
+### Recommendations for Next Session
+
+- **Continue SPEC-015:** Provider Model and Adapter Wiring is the highest-leverage work (unblocks 1, high weight)
+- **Clean design-check.log:** Stale artifact cache can be discarded with `git checkout .agents/design-check.log`
+- **Verify ticket accuracy:** SPEC-015 is in ready state; pull it if continuing in Environment Discovery focus
