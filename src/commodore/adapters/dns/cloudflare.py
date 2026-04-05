@@ -111,3 +111,11 @@ class CloudflareDNS:
                 errors.append(f"DNS {change.action} failed for {change.resource_id}: {e}")
 
         return Result(success=len(errors) == 0, changes_applied=applied, errors=errors)
+
+    def health(self) -> bool:
+        """Verify API token is valid by making a test API call."""
+        try:
+            self._client.list_records(self._zone_id)
+            return True
+        except Exception:
+            return False

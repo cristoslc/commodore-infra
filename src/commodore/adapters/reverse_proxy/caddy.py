@@ -95,3 +95,11 @@ class CaddyAdapter:
             upstream = route.get("upstream", "")
             blocks.append(f"{name} {{\n  reverse_proxy {upstream}\n}}")
         return "\n\n".join(blocks) + "\n" if blocks else ""
+
+    def health(self) -> bool:
+        """Verify SSH connectivity by running a test command."""
+        try:
+            self._executor.run(self._host, "echo ok")
+            return True
+        except Exception:
+            return False

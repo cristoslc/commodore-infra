@@ -47,6 +47,9 @@ class InMemoryDNS:
                 self._records = [r for r in self._records if r.get("name") != c.resource_id]
         return Result(success=True, changes_applied=len(changes))
 
+    def health(self) -> bool:
+        return True
+
     def reset(self) -> None:
         self._records.clear()
 
@@ -77,6 +80,9 @@ class InMemoryReverseProxy:
             errors.append("Missing 'upstream' in reverse proxy config")
         return errors
 
+    def health(self) -> bool:
+        return True
+
     def reset(self) -> None:
         self._routes.clear()
 
@@ -101,6 +107,9 @@ class InMemoryLoadBalancer:
                 self._backends = [r for r in self._backends if r.get("name") != c.resource_id]
         return Result(success=True, changes_applied=len(changes))
 
+    def health(self) -> bool:
+        return True
+
     def reset(self) -> None:
         self._backends.clear()
 
@@ -124,6 +133,9 @@ class InMemoryContainer:
             elif c.action == "delete":
                 self._stacks = [r for r in self._stacks if r.get("name") != c.resource_id]
         return Result(success=True, changes_applied=len(changes))
+
+    def health(self) -> bool:
+        return True
 
     def reset(self) -> None:
         self._stacks.clear()
@@ -165,6 +177,9 @@ class InMemoryInfrastructure:
             elif c.action == "delete":
                 self._hosts = [r for r in self._hosts if r.get("name") != c.resource_id]
         return Result(success=True, changes_applied=len(changes))
+
+    def health(self) -> bool:
+        return True
 
     def reset(self) -> None:
         self._hosts.clear()

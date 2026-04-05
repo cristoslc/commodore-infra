@@ -101,3 +101,11 @@ class DockerComposeAdapter:
 {port_lines}
     restart: unless-stopped
 """
+
+    def health(self) -> bool:
+        """Verify SSH connectivity by running a test command."""
+        try:
+            self._executor.run(self._host, "echo ok")
+            return True
+        except Exception:
+            return False
