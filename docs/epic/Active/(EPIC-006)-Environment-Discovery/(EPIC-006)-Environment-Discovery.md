@@ -5,7 +5,7 @@ track: container
 status: Active
 author: cristos
 created: 2026-04-04
-last-updated: 2026-04-04
+last-updated: 2026-04-05
 parent-vision: VISION-001
 parent-initiative: ""
 priority-weight: high
@@ -83,14 +83,15 @@ A **host** is the narrowest scope. Discovery queries container, proxy, and infra
 
 ## Child Specs
 
-<!-- Updated as Agent Specs are created under this epic. -->
+| Spec | Title | Priority | Dependencies |
+|------|-------|----------|-------------|
+| SPEC-015 | Provider Model and Adapter Wiring | high | SPEC-004, SPEC-005 |
+| SPEC-016 | Discovery Engine | high | SPEC-015, SPEC-007 |
+| SPEC-017 | Snapshot Store | medium | SPEC-016 |
+| SPEC-018 | CLI discover Command | high | SPEC-016, SPEC-017 |
+| SPEC-019 | Drift Comparison | medium | SPEC-016, SPEC-017 |
 
-Proposed decomposition (to be refined):
-
-- **SPEC-015: Discovery Engine** -- core orchestration: scope resolution, adapter coordination, result merging into `DiscoveredState`
-- **SPEC-016: Provider Registry** -- mapping providers to port adapters, credential probing, health checks
-- **SPEC-017: CLI `discover` Command** -- argument parsing, output formatters (table, JSON, draft YAML)
-- **SPEC-018: Drift Comparison** -- `cdre diff` integration: compare `DiscoveredState` against declared `DesiredState`
+**Dependency chain:** SPEC-015 (provider model) -> SPEC-016 (engine) -> SPEC-017 (snapshots) + SPEC-018 (CLI) + SPEC-019 (drift). SPEC-015 is the critical path -- everything else depends on providers being wired.
 
 ## Key Dependencies
 
