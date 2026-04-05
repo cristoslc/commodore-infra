@@ -91,4 +91,4 @@ The operator can reference providers by name in config and CLI commands. The sys
 | Phase | Date | Commit | Notes |
 |-------|------|--------|-------|
 | Active | 2026-04-04 | | Initial creation |
-| Complete | 2026-04-05 | -- | Implementation landed via worktree b312 |
+| Complete | 2026-04-05 | 0694230 | Implementation landed via worktree b312 |
