@@ -1,12 +1,14 @@
-"""CLI driving adapter — cdre commands (SPEC-010)."""
+"""CLI driving adapter — cdre commands (SPEC-010, SPEC-018)."""
 
 from __future__ import annotations
 
+import json
 import sys
 
 import click
 
 from commodore.core.config import load_project, load_services, load_topology
+from commodore.core.discovery import DiscoveryEngine
 from commodore.core.engine import apply_plan, collect_state, compute_diff, generate_plan
 from commodore.core.validation import validate_all_placements
 from commodore.ports.registry import AdapterRegistry
@@ -96,3 +98,54 @@ def apply(path: str):
 def status():
     """Show current service placement and health."""
     click.echo("Status: no services deployed (in-memory adapters).")
+
+
+@app.command()
+@click.option("--host", "hosts", multiple=True, help="Scan specific host(s)")
+@click.option("--segment", help="Scan hosts on this network segment")
+@click.option("--provider", help="Scan adapters for this provider")
+@click.option("--format", "output_format", type=click.Choice(["json", "table", "draft-yaml"]), default="table", help="Output format")
+def discover(hosts: list[str], segment: str | None, provider: str | None, output_format: str):
+    """Discover infrastructure state.
+    
+    Run discovery across all adapters and return a unified inventory.
+    """
+    # Load topology and adapters
+    try:
+        config, topology, services = _load_and_validate("cdre.yaml")
+    except FileNotFoundError:
+        topology = None
+        services = []
+    
+    # Build registry (will be extended with provider config in future)
+    registry = AdapterRegistry.from_config({
+        "dns": {"type": "in_memory"},
+        "container": {"type": "in_memory"},
+        "reverse_proxy": {"type": "in_memory"},
+    })
+    
+    engine = DiscoveryEngine(registry, topology=topology)
+    result = engine.discover(hosts=hosts, segment=segment, provider=provider)
+    
+    # Format output
+    if output_format == "json":
+        click.echo(json.dumps({
+            "hosts": result.hosts,
+            "services": result.services,
+        }, indent=2))
+    elif output_format == "table":
+        click.echo("Discovered hosts:")
+        for host in result.hosts:
+            click.echo(f"  - {host.get('name', 'unknown')} ({host.get('state', 'unknown')})")
+        click.echo("\nDiscovered services:")
+        for svc in result.services:
+            svc_type = svc.get("type", svc.get("name", "unknown"))
+            click.echo(f"  - {svc.get('name', 'unknown')} ({svc_type})")
+    elif output_format == "draft-yaml":
+        # Generate draft service definitions from discovered state
+        click.echo("# Draft services from discovery")
+        click.echo("# Review and save to service YAML files before applying")
+        for svc in result.services:
+            click.echo(f"# - Service: {svc.get('name', 'unknown')}")
+            click.echo(f"#   Type: {svc.get('type', 'unknown')}")
+            click.echo(f"#   Target: {svc.get('target', svc.get('upstream', ''))}")
