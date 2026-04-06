@@ -1,6 +1,6 @@
 # Commodore
 
-> **WARNING: This project is experimental and completely untested.** The code is provided solely for research interest. It is not intended for production use, and there are no guarantees of correctness, stability, or completeness. Use at your own risk.
+> **WARNING: This project is experimental and completely untested in production.** The code is provided solely for research interest. It is not intended for production use, and there are no guarantees of correctness, stability, or completeness. Use at your own risk.
 
 **CLI:** `cdre`
 
@@ -8,11 +8,12 @@ Commodore is a hexagonal architecture infrastructure platform that separates ser
 
 ## Status
 
-Experimental -- not tested, not production-ready.
+Experimental -- unit/integration tested, but completely untested in production.
 
 ## Key Concepts
 
 - **Hexagonal architecture (ports & adapters)** -- core domain logic is isolated from all external systems through explicit port interfaces and swappable adapters
+- **Pluggable adapters** -- third-party adapters can be installed via pip/uv and discovered at runtime (see [Plugin Development Guide](docs/docs/plugin-development.md))
 - **Security-classified placement** -- blast-radius classes and taint domains determine where services can run; violations are structural, not policy-based
 - **Service composition** -- DNS, ingress, workload, and storage are declared as one unit per service
 - **Runtime-agnostic workloads** -- a service definition is valid whether it runs as a Docker container, k3s pod, Proxmox VM, or bare metal process
@@ -22,21 +23,36 @@ Experimental -- not tested, not production-ready.
 
 See `docs/vision/Active/(VISION-001)-Commodore-Platform/` for the full product vision and architecture overview.
 
+### Plugin System
+
+Commodore supports third-party adapters via Python entry points. Built-in adapters (Cloudflare DNS, Caddy, Docker Compose) and external plugins use the same discovery mechanism.
+
+**Built-in adapters:**
+- `dns_cloudflare` -- Cloudflare DNS API
+- `reverse_proxy_caddy` -- Caddy reverse proxy
+- `container_docker_compose` -- Docker Compose workloads
+
+**Adding custom adapters:** See the [Plugin Development Guide](docs/docs/plugin-development.md) for how to create and publish adapters for new providers.
+
 ## Project Structure
 
 ```
 src/commodore/
   core/           -- domain models and operations (diff, plan, apply, validate)
   ports/          -- port interfaces (driven and driving)
-  adapters/       -- adapter implementations (DNS, reverse proxy, LB, container, secrets, frontends)
+  adapters/       -- built-in adapter implementations
 tests/
-docs/vision/      -- product vision and architecture artifacts
+docs/
+  vision/         -- product vision and architecture artifacts
+  docs/           -- user documentation
+  examples/       -- example plugins and configurations
 ```
 
 ## Development
 
 ```bash
-cd cli && uv run cdre --help
+uv run cdre --help
+uv run pytest tests/
 ```
 
 Managed with `uv`. Python 3.11+.

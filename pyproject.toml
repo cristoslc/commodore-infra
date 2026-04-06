@@ -11,6 +11,11 @@ dependencies = [
 [project.scripts]
 cdre = "commodore.cli:app"
 
+[project.entry-points."commodore.adapters"]
+dns_cloudflare = "commodore.adapters.dns.cloudflare:CloudflareDNS"
+reverse_proxy_caddy = "commodore.adapters.reverse_proxy.caddy:CaddyAdapter"
+container_docker_compose = "commodore.adapters.container.docker_compose:DockerComposeAdapter"
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -20,3 +25,8 @@ packages = ["src/commodore"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

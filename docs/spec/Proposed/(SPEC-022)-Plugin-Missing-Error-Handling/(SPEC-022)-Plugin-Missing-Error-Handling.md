@@ -2,7 +2,7 @@
 title: "Plugin Missing Error Handling"
 artifact: SPEC-022
 track: implementable
-status: Proposed
+status: Complete
 author: cristos
 created: 2026-04-06
 last-updated: 2026-04-06

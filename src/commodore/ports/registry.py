@@ -1,13 +1,15 @@
-"""Adapter registry (SPEC-005, SPEC-015)."""
+"""Adapter registry (SPEC-005, SPEC-015, SPEC-021)."""
 
 from __future__ import annotations
 
+import importlib.metadata
 import os
 import warnings
 from dataclasses import dataclass, field
 from typing import Any
 
 from commodore.core.provider import Provider
+from commodore.core.plugin_discovery import DiscoveryResult
 from commodore.ports.driven.dns import DNSPort
 from commodore.ports.driven.reverse_proxy import ReverseProxyPort
 from commodore.ports.driven.load_balancer import LoadBalancerPort
@@ -26,6 +28,84 @@ class AdapterRegistry:
     infrastructure: InfrastructurePort | None = None
     _providers: tuple[Provider, ...] = ()
     _provider_map: dict[str, str] = field(default_factory=dict)  # port_name -> provider_name
+    discovered_adapters: dict[str, importlib.metadata.EntryPoint] = field(default_factory=dict)
+    _provider_config: dict[str, str] = field(default_factory=dict)  # port_type -> provider_name
+
+    @classmethod
+    def from_discovery(
+        cls,
+        discovery: DiscoveryResult,
+        config: dict[str, Any] | None = None,
+    ) -> "AdapterRegistry":
+        """Build registry from discovered adapters.
+
+        Args:
+            discovery: DiscoveryResult from discover_adapters().
+            config: Optional configuration with provider name mappings.
+
+        Returns:
+            AdapterRegistry with adapter instances for configured providers.
+        """
+        # Build provider config mapping from config
+        provider_config: dict[str, str] = {}
+        if config:
+            for port_name, port_cfg in config.items():
+                if isinstance(port_cfg, dict) and "provider" in port_cfg:
+                    provider_config[port_name] = port_cfg["provider"]
+
+        return cls(
+            discovered_adapters=dict(discovery.adapters),
+            _provider_config=provider_config,
+        )
+
+    def get_adapter(self, port_type: type, provider_name: str) -> Any:
+        """Get adapter instance for a port type and provider name.
+
+        Args:
+            port_type: The port Protocol class (e.g., DNSPort).
+            provider_name: The provider name (e.g., "cloudflare").
+
+        Returns:
+            Adapter instance for the specified port and provider.
+
+        Raises:
+            KeyError: If provider not in discovered_adapters.
+        """
+        # Map port type to port name
+        port_name = self._port_type_to_name(port_type)
+        
+        # Check if this is already loaded as a built-in adapter
+        existing = getattr(self, port_name, None)
+        if existing is not None:
+            # Check if provider matches
+            if self._provider_config.get(port_name) == provider_name:
+                return existing
+
+        # Look up in discovered adapters
+        adapter_key = f"{port_name}_{provider_name}"
+        if adapter_key in self.discovered_adapters:
+            entry_point = self.discovered_adapters[adapter_key]
+            # Load and return the adapter class
+            adapter_class = entry_point.load()
+            # Adapter may need instantiation
+            if callable(adapter_class):
+                return adapter_class()
+            return adapter_class
+
+        raise KeyError(f"Provider '{provider_name}' not found for port '{port_name}'")
+
+    def _port_type_to_name(self, port_type: type) -> str:
+        """Map port Protocol class to port name used in registry."""
+        # Map protocol classes to attribute names
+        port_map = {
+            DNSPort: "dns",
+            ReverseProxyPort: "reverse_proxy",
+            LoadBalancerPort: "load_balancer",
+            ContainerPort: "container",
+            SecretPort: "secret",
+            InfrastructurePort: "infrastructure",
+        }
+        return port_map.get(port_type, port_type.__name__.lower().replace("port", ""))
 
     @classmethod
     def from_config(cls, config: dict[str, Any]) -> AdapterRegistry:
