@@ -1,5 +1,14 @@
 # Agent Specs
 
+## Proposed
+
+|| Artifact | Title | Last Updated | Commit |
+||----------|-------|-------------|--------|
+|| SPEC-020 | Entry Point Discovery Mechanism | 2026-04-06 | — |
+|| SPEC-021 | AdapterRegistry Plugin Loading | 2026-04-06 | — |
+|| SPEC-022 | Plugin Missing Error Handling | 2026-04-06 | — |
+|| SPEC-023 | Plugin Development Guide | 2026-04-06 | — |
+
 ## Active
 
 | Artifact | Title | Last Updated | Commit |
@@ -27,5 +36,5 @@
 | SPEC-012 | Cloudflare DNS Adapter | 2026-04-04 | — |
 | SPEC-013 | Docker Compose Adapter | 2026-04-04 | — |
 | SPEC-014 | SSH+Caddy Reverse Proxy Adapter | 2026-04-04 | — |
-| SPEC-015 | Provider Model and Adapter Wiring | 2026-04-05 | -- |
+| SPEC-015 | Provider Model and Adapter Wiring | 2026-04-05 | 0694230 |
 

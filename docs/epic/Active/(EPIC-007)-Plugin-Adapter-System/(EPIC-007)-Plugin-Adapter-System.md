@@ -88,10 +88,10 @@ Plugin Package            external Python package with adapter(s)
 
 || Spec | Title | Priority | Dependencies | Status |
 ||------|-------|----------|--------------|--------|
-|| SPEC-020 | Entry Point Discovery Mechanism | high | SPEC-005 | Pending |
-|| SPEC-021 | AdapterRegistry Plugin Loading | high | SPEC-005, SPEC-020 | Pending |
-|| SPEC-022 | Plugin Missing Error Handling | medium | SPEC-021 | Pending |
-|| SPEC-023 | Plugin Development Guide | medium | SPEC-020, SPEC-021 | Pending |
+|| SPEC-020 | Entry Point Discovery Mechanism | high | SPEC-005 | Proposed |
+|| SPEC-021 | AdapterRegistry Plugin Loading | high | SPEC-005, SPEC-020 | Proposed |
+|| SPEC-022 | Plugin Missing Error Handling | medium | SPEC-021 | Proposed |
+|| SPEC-023 | Plugin Development Guide | medium | SPEC-020, SPEC-021 | Proposed |
 
 **Dependency chain:** SPEC-020 (entry points) → SPEC-021 (registry loading) → SPEC-022 (error handling) + SPEC-023 (docs). All depend on SPEC-005 (Adapter Registry) from EPIC-005.
 
