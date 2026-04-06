@@ -23,5 +23,7 @@ Thumbs.db
 .agents/bin/
 .agents/skills/
 .agents/session.json
+.claude/skills/swain
+.claude/skills/swain-*
 .claude/worktrees/
 .swain-init
